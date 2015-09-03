@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface FMRichTextViewToolbar : UIToolbar
-
+@property (nonatomic, readonly) NSArray *buttonsWithAttributeName;
+@property (nonatomic, readonly) NSArray *buttonsWithFontDescriptorTrait;
 @end

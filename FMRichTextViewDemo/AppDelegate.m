@@ -19,7 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	// Override point for customization after application launch.
 	
-	[[FMRichTextView appearance] setTintColor:[UIColor greenColor]];
+	[[FMRichTextView appearance] setTintColor:[UIColor redColor]];
 	
 	return YES;
 }

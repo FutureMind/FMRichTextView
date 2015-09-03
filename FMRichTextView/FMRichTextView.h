@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface FMRichTextView : UITextView
-
+@property (nonatomic, readonly) FMRichTextViewToolbar *accessoryToolbar;
 @end

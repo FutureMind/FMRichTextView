@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UIFont+FMRichTextView.h"
 
 @interface ViewController : UIViewController
 @end

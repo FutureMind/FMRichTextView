@@ -7,6 +7,7 @@
 //
 
 #import "FMRichTextViewToolbar.h"
+#import "FMRichTextViewToolbarButton.h"
 
 @implementation FMRichTextViewToolbar
 
@@ -18,6 +19,20 @@
 	{
 		item.customView.tintColor = tintColor;
 	}
+}
+
+- (NSArray *)buttonsWithAttributeName;
+{
+	return [[self.items valueForKeyPath:@"customView"] filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
+		return [evaluatedObject isKindOfClass:[FMRichTextViewToolbarButton class]] && [(FMRichTextViewToolbarButton *)evaluatedObject attributeName] != nil;
+	}]];
+}
+
+- (NSArray *)buttonsWithFontDescriptorTrait
+{
+	return [[self.items valueForKeyPath:@"customView"] filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
+		return [evaluatedObject isKindOfClass:[FMRichTextViewToolbarButton class]] && [(FMRichTextViewToolbarButton *)evaluatedObject attributeName] == nil;
+	}]];
 }
 
 @end

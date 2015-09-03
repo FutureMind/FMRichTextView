@@ -9,16 +9,13 @@
 #import "FMRichTextView.h"
 #import "FMRichTextViewToolbar.h"
 #import "FMRichTextViewToolbarButton.h"
-#import "UIFont+FMRichTextView.h"
+//#import "UIFont+FMRichTextView.h"
 
 @interface FMRichTextView ()
-- (void)accessoryButtonTouchedUp:(UIButton *)button;
-- (void)doneButtonTouchedUp:(UIBarButtonItem *)button;
-
 @property (nonatomic, strong) FMRichTextViewToolbar *accessoryToolbar;
-@property (nonatomic, strong) FMRichTextViewToolbarButton *boldButton;
-@property (nonatomic, strong) FMRichTextViewToolbarButton *italicButton;
-@property (nonatomic, strong) FMRichTextViewToolbarButton *underlineButton;
+
+- (void)accessoryButtonTouchedUp:(FMRichTextViewToolbarButton *)button;
+- (void)doneButtonTouchedUp:(UIBarButtonItem *)button;
 
 - (void)updateTextStyleInSelectedRange;
 - (void)updateTypingAttributes;
@@ -31,36 +28,35 @@
 	self = [super initWithCoder:aDecoder];
 	if (self)
 	{
-		_accessoryToolbar = [FMRichTextViewToolbar new];
-		_accessoryToolbar.frame = CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.frame), 44.0f);
+		FMRichTextViewToolbarButton *boldButton = [FMRichTextViewToolbarButton buttonWithFontDescriptorTrait:UIFontDescriptorTraitBold];
+		[boldButton setTitle:@"B" forState:UIControlStateNormal];
 		
-		_boldButton = [FMRichTextViewToolbarButton buttonWithType:UIButtonTypeCustom];
-		[_boldButton setAttributedTitle:[[NSAttributedString alloc] initWithString:@"B" attributes:@{NSFontAttributeName: [UIFont fontWithType:FMRichTextViewFontTypeBold]}] forState:UIControlStateNormal];
+		FMRichTextViewToolbarButton italicButton = [FMRichTextViewToolbarButton buttonWithFontDescriptorTrait:UIFontDescriptorTraitItalic];
+		[italicButton setTitle:@"I" forState:UIControlStateNormal];
 		
-		_italicButton = [FMRichTextViewToolbarButton buttonWithType:UIButtonTypeCustom];
-		[_italicButton setAttributedTitle:[[NSAttributedString alloc] initWithString:@"I" attributes:@{NSFontAttributeName: [UIFont fontWithType:FMRichTextViewFontTypeItalic]}] forState:UIControlStateNormal];
+		FMRichTextViewToolbarButton underlineButton = [FMRichTextViewToolbarButton buttonWithAttributeName:NSUnderlineStyleAttributeName normalValue:@0 selectedValue:@1];
+		[underlineButton setTitle:@"U" forState:UIControlStateNormal];
 		
-		_underlineButton = [FMRichTextViewToolbarButton buttonWithType:UIButtonTypeCustom];
-		[_underlineButton setAttributedTitle:[[NSAttributedString alloc] initWithString:@"U" attributes:@{NSFontAttributeName: [UIFont fontWithType:FMRichTextViewFontTypeNormal], NSUnderlineStyleAttributeName: @1}] forState:UIControlStateNormal];
-		
-		for (FMRichTextViewToolbarButton *button in @[_boldButton, _italicButton, _underlineButton])
+		for (FMRichTextViewToolbarButton *button in @[boldButton, italicButton, underlineButton])
 		{
 			button.frame = CGRectMake(0.0f, 0.0f, 32.0f, 32.0f);
+			[button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+			[button setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
 			[button addTarget:self action:@selector(accessoryButtonTouchedUp:) forControlEvents:UIControlEventTouchUpInside];
 		}
 		
-		_accessoryToolbar.items = @[[[UIBarButtonItem alloc] initWithCustomView:_boldButton],
-									[[UIBarButtonItem alloc] initWithCustomView:_italicButton],
-									[[UIBarButtonItem alloc] initWithCustomView:_underlineButton],
+		_accessoryToolbar = [FMRichTextViewToolbar new];
+		_accessoryToolbar.frame = CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.frame), 44.0f);
+		_accessoryToolbar.items = @[[[UIBarButtonItem alloc] initWithCustomView:boldButton],
+									[[UIBarButtonItem alloc] initWithCustomView:italicButton],
+									[[UIBarButtonItem alloc] initWithCustomView:underlineButton],
 									[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
 									[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonTouchedUp:)]
 									];
 		
+		self.font = [UIFont systemFontOfSize:16.0f];
 		self.inputAccessoryView = _accessoryToolbar;
-		self.typingAttributes = @{NSFontAttributeName: [UIFont fontWithType:FMRichTextViewFontTypeNormal],
-								  NSUnderlineStyleAttributeName: @0
-								  };
-		
+
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textViewTextDidChangeNotification:) name:UITextViewTextDidChangeNotification object:self];
 	}
 	return self;
@@ -71,10 +67,52 @@
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+#pragma mark - Setters
+
 - (void)setTintColor:(UIColor *)tintColor
 {
 	[super setTintColor:tintColor];
 	self.accessoryToolbar.tintColor = tintColor;
+}
+
+- (void)setFont:(UIFont *)font
+{
+	if (self.attributedText.length > 0)
+	{
+		// get the possible traits
+		UIFontDescriptorSymbolicTraits traitsMask = 0;
+		for (FMRichTextViewToolbarButton *button in self.accessoryToolbar.buttonsWithFontDescriptorTrait)
+		{
+			traitsMask |= button.fontDescriptorTrait;
+		}
+		
+		// replace font in the current text
+		NSMutableAttributedString *mutableAttributedText = [self.attributedText mutableCopy];
+		[self.attributedText enumerateAttribute:NSFontAttributeName inRange:NSMakeRange(0, self.attributedText.length) options:0 usingBlock:^(UIFont *oldFont, NSRange range, BOOL *stop) {
+			
+			UIFontDescriptorSymbolicTraits traits = oldFont.fontDescriptor.symbolicTraits & traitsMask;
+			UIFont *newFont = [UIFont fontWithDescriptor:[font.fontDescriptor fontDescriptorWithSymbolicTraits:traits] size:0.0f];
+			
+			[mutableAttributedText addAttribute:NSFontAttributeName value:newFont range:range];
+		}];
+		
+		[super setFont:font];
+		self.attributedText = mutableAttributedText;
+	}
+	else
+	{
+		[super setFont:font];
+	}
+	
+	for (UIBarButtonItem *item in self.accessoryToolbar.items)
+	{
+		if ([item.customView isKindOfClass:[FMRichTextViewToolbarButton class]])
+		{
+			[(FMRichTextViewToolbarButton *)item.customView setFont:font];
+		}
+	}
+
+	[self updateTextStyleInSelectedRange];
 }
 
 #pragma mark - Notification
@@ -88,8 +126,8 @@
 
 - (void)setSelectedTextRange:(UITextRange *)selectedTextRange
 {
-	[self updateTextStyleInSelectedRange];
 	[super setSelectedTextRange:selectedTextRange];
+	[self updateTextStyleInSelectedRange];
 }
 
 - (void)updateTextStyleInSelectedRange
@@ -99,45 +137,32 @@
 	if (self.selectedRange.length > 0)
 	{
 		[self.attributedText enumerateAttributesInRange:self.selectedRange options:0 usingBlock:^(NSDictionary *attrs, NSRange range, BOOL *stop) {
-			UIFont *font = attrs[NSFontAttributeName];
-			NSNumber *underline = attrs[NSUnderlineStyleAttributeName];
-			
-			[characterStyles addObject:@{@"font": font, @"underline": underline, @"range": [NSValue valueWithRange:range]}];
+			[characterStyles addObject:attrs];
 		}];
 	}
 	else if (self.attributedText.length > 0)
 	{
 		// get text style of the previous character
-		UIFont *font = [self.attributedText attribute:NSFontAttributeName atIndex:self.selectedRange.location - 1 effectiveRange:nil];
-		NSNumber *underline = [self.attributedText attribute:NSUnderlineStyleAttributeName atIndex:self.selectedRange.location - 1 effectiveRange:nil];
-		
-		[characterStyles addObject:@{@"font": font, @"underline": underline}];
+		NSDictionary *attrs = [self.attributedText attributesAtIndex:self.selectedRange.location - 1 effectiveRange:nil];
+		[characterStyles addObject:attrs];
 	}
 	
-	// toggle bold / italic button
-	NSArray *differentFonts = [characterStyles valueForKeyPath:@"@distinctUnionOfObjects.font"];
-	if ([differentFonts count] == 1)
+	// toggle font trait buttons
+	NSArray *buttonsWithFontDescriptorTrait = self.accessoryToolbar.buttonsWithFontDescriptorTrait;
+	NSArray *differentFonts = [characterStyles valueForKeyPath:[NSString stringWithFormat:@"@distinctUnionOfObjects.%@", NSFontAttributeName]];
+	for (FMRichTextViewToolbarButton *button in buttonsWithFontDescriptorTrait)
 	{
-		UIFont *font = characterStyles.firstObject[@"font"];
-		self.boldButton.selected = (font.fontType & FMRichTextViewFontTypeBold) > 0;
-		self.italicButton.selected = (font.fontType & FMRichTextViewFontTypeItalic) > 0;
-	}
-	else
-	{
-		self.boldButton.selected = NO;
-		self.italicButton.selected = NO;
+		// select if in the selection there is only one font and its trait matches button's font trait
+		button.selected = ([differentFonts count] == 1) && ([characterStyles.firstObject[NSFontAttributeName] fontDescriptor].symbolicTraits & button.fontDescriptorTrait) > 0;
 	}
 	
-	// toggle underline button
-	NSArray *differentUnderlineStyles = [characterStyles valueForKeyPath:@"@distinctUnionOfObjects.underline"];
-	if ([differentUnderlineStyles count] == 1)
+	// toggle attribute buttons
+	NSArray *buttonsWithAttributeName = self.accessoryToolbar.buttonsWithAttributeName;
+	for (FMRichTextViewToolbarButton *button in buttonsWithAttributeName)
 	{
-		NSNumber *underline = characterStyles.firstObject[@"underline"];
-		self.underlineButton.selected = underline.boolValue;
-	}
-	else
-	{
-		self.underlineButton.selected = NO;
+		// select if in the selection there is only one style and its value matches button's selected attribute value
+		NSArray *differentAttributes = [characterStyles valueForKeyPath:[NSString stringWithFormat:@"@distinctUnionOfObjects.%@", button.attributeName]];
+		button.selected = ([differentFonts count] == 1) && [characterStyles.firstObject[button.attributeName] isEqual:button.selectedValue];
 	}
 	
 	// update typing attributes
@@ -147,8 +172,23 @@
 - (void)updateTypingAttributes
 {
 	NSMutableDictionary *mutableTypingAttributes = [self.typingAttributes mutableCopy];
-	mutableTypingAttributes[NSFontAttributeName] = [UIFont fontWithType:FMRichTextViewFontTypeNormal | (self.boldButton.selected ? FMRichTextViewFontTypeBold : 0) | (self.italicButton.selected ? FMRichTextViewFontTypeItalic : 0)];
-	mutableTypingAttributes[NSUnderlineStyleAttributeName] = @(self.underlineButton.selected);
+	
+	// enumerate buttons with font descriptor trait
+	UIFontDescriptorSymbolicTraits traits = 0;
+
+	NSArray *buttonsWithFontDescriptorTrait = self.accessoryToolbar.buttonsWithFontDescriptorTrait;
+	for (FMRichTextViewToolbarButton *button in buttonsWithFontDescriptorTrait)
+	{
+		traits |= (button.isSelected ? button.fontDescriptorTrait : 0);
+	}
+	mutableTypingAttributes[NSFontAttributeName] = [UIFont fontWithDescriptor:[self.font.fontDescriptor fontDescriptorWithSymbolicTraits:traits] size:0.0f];
+
+	// enumerate attribute buttons
+	NSArray *buttonsWithAttributeName = self.accessoryToolbar.buttonsWithAttributeName;
+	for (FMRichTextViewToolbarButton *button in buttonsWithAttributeName)
+	{
+		mutableTypingAttributes[button.attributeName] = button.attributeValue;
+	}
 	
 	self.typingAttributes = [NSDictionary dictionaryWithDictionary:mutableTypingAttributes];
 }
@@ -160,7 +200,7 @@
 	[self resignFirstResponder];
 }
 
-- (void)accessoryButtonTouchedUp:(UIButton *)button
+- (void)accessoryButtonTouchedUp:(FMRichTextViewToolbarButton *)button
 {
 	button.selected = !button.selected;
 	
@@ -175,30 +215,30 @@
 		
 		// add / remove font type to particular fragments of selected text
 		NSMutableAttributedString *attributedString = [self.attributedText mutableCopy];
-		if (button == self.boldButton || button == self.italicButton)
+		if (button.attributeName)
 		{
-			FMRichTextViewFontType fontTypeForSenderButton = (button == self.boldButton ? FMRichTextViewFontTypeBold : FMRichTextViewFontTypeItalic);
-
+			[self.attributedText enumerateAttribute:button.attributeName inRange:selectedRange options:0 usingBlock:^(NSNumber *underline, NSRange range, BOOL *stop) {
+				[attributedString addAttribute:NSUnderlineStyleAttributeName value:button.attributeValue range:range];
+			}];
+		}
+		else
+		{
 			[self.attributedText enumerateAttribute:NSFontAttributeName inRange:selectedRange options:0 usingBlock:^(UIFont * font, NSRange range, BOOL *stop) {
 				
-				FMRichTextViewFontType type = font.fontType;
+				UIFontDescriptorSymbolicTraits traits = font.fontDescriptor.symbolicTraits;
 				if (button.isSelected)
 				{
-					type |= fontTypeForSenderButton;
+					traits |= button.fontDescriptorTrait;
 				}
 				else
 				{
-					type ^= fontTypeForSenderButton;
+					traits ^= button.fontDescriptorTrait;
 				}
 				
-				[attributedString addAttribute:NSFontAttributeName value:[UIFont fontWithType:type] range:range];
+				UIFont *newFont = [UIFont fontWithDescriptor:[font.fontDescriptor fontDescriptorWithSymbolicTraits:traits] size:0.0f];
+				[attributedString addAttribute:NSFontAttributeName value:newFont range:range];
 			}];
-		}
-		else if (button == self.underlineButton)
-		{
-			[self.attributedText enumerateAttribute:NSUnderlineStyleAttributeName inRange:selectedRange options:0 usingBlock:^(NSNumber *underline, NSRange range, BOOL *stop) {
-				[attributedString addAttribute:NSUnderlineStyleAttributeName value:@(button.isSelected) range:range];
-			}];
+			
 		}
 		
 		self.attributedText = attributedString;

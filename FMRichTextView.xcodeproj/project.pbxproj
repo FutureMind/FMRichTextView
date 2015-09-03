@@ -7,74 +7,146 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B61739151B97486700525798 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B61739021B97486700525798 /* AppDelegate.m */; };
-		B61739181B97486700525798 /* FMRichTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = B61739091B97486700525798 /* FMRichTextView.m */; };
-		B61739191B97486700525798 /* FMRichTextViewToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = B617390B1B97486700525798 /* FMRichTextViewToolbar.m */; };
-		B617391A1B97486700525798 /* FMRichTextViewToolbarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B617390D1B97486700525798 /* FMRichTextViewToolbarButton.m */; };
-		B617391B1B97486700525798 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B617390E1B97486700525798 /* Images.xcassets */; };
-		B617391C1B97486700525798 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B617390F1B97486700525798 /* Info.plist */; };
-		B617391D1B97486700525798 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B61739101B97486700525798 /* main.m */; };
-		B617391E1B97486700525798 /* UIFont+FMRichTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = B61739121B97486700525798 /* UIFont+FMRichTextView.m */; };
-		B617391F1B97486700525798 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B61739141B97486700525798 /* ViewController.m */; };
-		B61739241B97487200525798 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B61739201B97487200525798 /* LaunchScreen.xib */; };
-		B61739251B97487200525798 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B61739221B97487200525798 /* Main.storyboard */; };
-		B617392B1B9748A300525798 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B617392A1B9748A300525798 /* Info.plist */; };
-		B6826A2B1B9749B4008C432B /* RichTextEditorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B61739281B97489B00525798 /* RichTextEditorTests.m */; };
+		B6826A671B9858F3008C432B /* libFMRichTextView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B6826A5C1B9858F3008C432B /* libFMRichTextView.a */; };
+		B6826A7C1B98592B008C432B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B6826A7B1B98592B008C432B /* main.m */; };
+		B6826A7F1B98592B008C432B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B6826A7E1B98592B008C432B /* AppDelegate.m */; };
+		B6826A821B98592B008C432B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6826A811B98592B008C432B /* ViewController.m */; };
+		B6826A851B98592B008C432B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6826A831B98592B008C432B /* Main.storyboard */; };
+		B6826A871B98592B008C432B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6826A861B98592B008C432B /* Images.xcassets */; };
+		B6826A8A1B98592B008C432B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6826A881B98592B008C432B /* LaunchScreen.xib */; };
+		B6826A9D1B98599C008C432B /* FMRichTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = B61739091B97486700525798 /* FMRichTextView.m */; };
+		B6826A9E1B98599C008C432B /* FMRichTextViewToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = B617390B1B97486700525798 /* FMRichTextViewToolbar.m */; };
+		B6826A9F1B9859A0008C432B /* FMRichTextViewToolbarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B617390D1B97486700525798 /* FMRichTextViewToolbarButton.m */; };
+		B6826AA21B9859AB008C432B /* FMRichTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = B61739081B97486700525798 /* FMRichTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B6826AA31B9859AB008C432B /* FMRichTextViewToolbar.h in Headers */ = {isa = PBXBuildFile; fileRef = B617390A1B97486700525798 /* FMRichTextViewToolbar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B6826AA41B9859AB008C432B /* FMRichTextViewToolbarButton.h in Headers */ = {isa = PBXBuildFile; fileRef = B617390C1B97486700525798 /* FMRichTextViewToolbarButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B6826AA81B9859D5008C432B /* libFMRichTextView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B6826A5C1B9858F3008C432B /* libFMRichTextView.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		B6AD961E1B96F37C00D544A2 /* PBXContainerItemProxy */ = {
+		B6826A681B9858F3008C432B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B6AD95FC1B96F37C00D544A2 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = B6AD96031B96F37C00D544A2;
-			remoteInfo = RichTextEditor;
+			remoteGlobalIDString = B6826A5B1B9858F3008C432B;
+			remoteInfo = FMRichTextView;
+		};
+		B6826AA61B9859D2008C432B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B6AD95FC1B96F37C00D544A2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B6826A5B1B9858F3008C432B;
+			remoteInfo = FMRichTextView;
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		B6826A5A1B9858F3008C432B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		B61739011B97486700525798 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = FMRichTextView/AppDelegate.h; sourceTree = SOURCE_ROOT; };
-		B61739021B97486700525798 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = FMRichTextView/AppDelegate.m; sourceTree = SOURCE_ROOT; };
 		B61739081B97486700525798 /* FMRichTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMRichTextView.h; path = FMRichTextView/FMRichTextView.h; sourceTree = SOURCE_ROOT; };
 		B61739091B97486700525798 /* FMRichTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMRichTextView.m; path = FMRichTextView/FMRichTextView.m; sourceTree = SOURCE_ROOT; };
 		B617390A1B97486700525798 /* FMRichTextViewToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMRichTextViewToolbar.h; path = FMRichTextView/FMRichTextViewToolbar.h; sourceTree = SOURCE_ROOT; };
 		B617390B1B97486700525798 /* FMRichTextViewToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMRichTextViewToolbar.m; path = FMRichTextView/FMRichTextViewToolbar.m; sourceTree = SOURCE_ROOT; };
 		B617390C1B97486700525798 /* FMRichTextViewToolbarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMRichTextViewToolbarButton.h; path = FMRichTextView/FMRichTextViewToolbarButton.h; sourceTree = SOURCE_ROOT; };
 		B617390D1B97486700525798 /* FMRichTextViewToolbarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMRichTextViewToolbarButton.m; path = FMRichTextView/FMRichTextViewToolbarButton.m; sourceTree = SOURCE_ROOT; };
-		B617390E1B97486700525798 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = FMRichTextView/Images.xcassets; sourceTree = SOURCE_ROOT; };
-		B617390F1B97486700525798 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = FMRichTextView/Info.plist; sourceTree = SOURCE_ROOT; };
-		B61739101B97486700525798 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = FMRichTextView/main.m; sourceTree = SOURCE_ROOT; };
-		B61739111B97486700525798 /* UIFont+FMRichTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIFont+FMRichTextView.h"; path = "FMRichTextView/UIFont+FMRichTextView.h"; sourceTree = SOURCE_ROOT; };
-		B61739121B97486700525798 /* UIFont+FMRichTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIFont+FMRichTextView.m"; path = "FMRichTextView/UIFont+FMRichTextView.m"; sourceTree = SOURCE_ROOT; };
-		B61739131B97486700525798 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = FMRichTextView/ViewController.h; sourceTree = SOURCE_ROOT; };
-		B61739141B97486700525798 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = FMRichTextView/ViewController.m; sourceTree = SOURCE_ROOT; };
-		B61739211B97487200525798 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = FMRichTextView/Base.lproj/LaunchScreen.xib; sourceTree = SOURCE_ROOT; };
-		B61739231B97487200525798 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = FMRichTextView/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
-		B61739281B97489B00525798 /* RichTextEditorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RichTextEditorTests.m; path = FMRichTextViewTests/RichTextEditorTests.m; sourceTree = SOURCE_ROOT; };
+		B61739281B97489B00525798 /* FMRichTextViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMRichTextViewTests.m; path = FMRichTextViewTests/FMRichTextViewTests.m; sourceTree = SOURCE_ROOT; };
 		B617392A1B9748A300525798 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = FMRichTextViewTests/Info.plist; sourceTree = SOURCE_ROOT; };
-		B6AD96041B96F37C00D544A2 /* FMRichTextView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FMRichTextView.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B6AD961D1B96F37C00D544A2 /* FMRichTextViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FMRichTextViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6826A5C1B9858F3008C432B /* libFMRichTextView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFMRichTextView.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6826A661B9858F3008C432B /* FMRichTextViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FMRichTextViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6826A771B98592B008C432B /* FMRichTextViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FMRichTextViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6826A7A1B98592B008C432B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6826A7B1B98592B008C432B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B6826A7D1B98592B008C432B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B6826A7E1B98592B008C432B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B6826A801B98592B008C432B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		B6826A811B98592B008C432B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		B6826A841B98592B008C432B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B6826A861B98592B008C432B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B6826A891B98592B008C432B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		B6AD96011B96F37C00D544A2 /* Frameworks */ = {
+		B6826A591B9858F3008C432B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B6AD961A1B96F37C00D544A2 /* Frameworks */ = {
+		B6826A631B9858F3008C432B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6826A671B9858F3008C432B /* libFMRichTextView.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B6826A741B98592B008C432B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B6826AA81B9859D5008C432B /* libFMRichTextView.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B61739261B97487C00525798 /* FMRichTextView */ = {
+		B6826A781B98592B008C432B /* FMRichTextViewDemo */ = {
+			isa = PBXGroup;
+			children = (
+				B6826A7D1B98592B008C432B /* AppDelegate.h */,
+				B6826A7E1B98592B008C432B /* AppDelegate.m */,
+				B6826A801B98592B008C432B /* ViewController.h */,
+				B6826A811B98592B008C432B /* ViewController.m */,
+				B6826A831B98592B008C432B /* Main.storyboard */,
+				B6826A861B98592B008C432B /* Images.xcassets */,
+				B6826A881B98592B008C432B /* LaunchScreen.xib */,
+				B6826A791B98592B008C432B /* Supporting Files */,
+			);
+			path = FMRichTextViewDemo;
+			sourceTree = "<group>";
+		};
+		B6826A791B98592B008C432B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B6826A7A1B98592B008C432B /* Info.plist */,
+				B6826A7B1B98592B008C432B /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B6AD95FB1B96F37C00D544A2 = {
+			isa = PBXGroup;
+			children = (
+				B6AD96061B96F37C00D544A2 /* FMRichTextView */,
+				B6AD96201B96F37C00D544A2 /* FMRichTextViewTests */,
+				B6826A781B98592B008C432B /* FMRichTextViewDemo */,
+				B6AD96051B96F37C00D544A2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B6AD96051B96F37C00D544A2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B6826A5C1B9858F3008C432B /* libFMRichTextView.a */,
+				B6826A661B9858F3008C432B /* FMRichTextViewTests.xctest */,
+				B6826A771B98592B008C432B /* FMRichTextViewDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B6AD96061B96F37C00D544A2 /* FMRichTextView */ = {
 			isa = PBXGroup;
 			children = (
 				B61739081B97486700525798 /* FMRichTextView.h */,
@@ -83,68 +155,15 @@
 				B617390B1B97486700525798 /* FMRichTextViewToolbar.m */,
 				B617390C1B97486700525798 /* FMRichTextViewToolbarButton.h */,
 				B617390D1B97486700525798 /* FMRichTextViewToolbarButton.m */,
-				B61739111B97486700525798 /* UIFont+FMRichTextView.h */,
-				B61739121B97486700525798 /* UIFont+FMRichTextView.m */,
-			);
-			name = FMRichTextView;
-			sourceTree = "<group>";
-		};
-		B61739271B97488C00525798 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				B61739201B97487200525798 /* LaunchScreen.xib */,
-				B61739221B97487200525798 /* Main.storyboard */,
-				B617390E1B97486700525798 /* Images.xcassets */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		B6AD95FB1B96F37C00D544A2 = {
-			isa = PBXGroup;
-			children = (
-				B6AD96061B96F37C00D544A2 /* FMRichTextView */,
-				B6AD96201B96F37C00D544A2 /* FMRichTextViewTests */,
-				B6AD96051B96F37C00D544A2 /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		B6AD96051B96F37C00D544A2 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				B6AD96041B96F37C00D544A2 /* FMRichTextView.app */,
-				B6AD961D1B96F37C00D544A2 /* FMRichTextViewTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		B6AD96061B96F37C00D544A2 /* FMRichTextView */ = {
-			isa = PBXGroup;
-			children = (
-				B61739011B97486700525798 /* AppDelegate.h */,
-				B61739131B97486700525798 /* ViewController.h */,
-				B61739021B97486700525798 /* AppDelegate.m */,
-				B61739141B97486700525798 /* ViewController.m */,
-				B61739261B97487C00525798 /* FMRichTextView */,
-				B61739271B97488C00525798 /* Resources */,
-				B6AD96071B96F37C00D544A2 /* Supporting Files */,
 			);
 			name = FMRichTextView;
 			path = RichTextEditor;
 			sourceTree = "<group>";
 		};
-		B6AD96071B96F37C00D544A2 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				B61739101B97486700525798 /* main.m */,
-				B617390F1B97486700525798 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		B6AD96201B96F37C00D544A2 /* FMRichTextViewTests */ = {
 			isa = PBXGroup;
 			children = (
-				B61739281B97489B00525798 /* RichTextEditorTests.m */,
+				B61739281B97489B00525798 /* FMRichTextViewTests.m */,
 				B6AD96211B96F37C00D544A2 /* Supporting Files */,
 			);
 			name = FMRichTextViewTests;
@@ -161,41 +180,73 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		B6826AA11B9859A3008C432B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B6826AA21B9859AB008C432B /* FMRichTextView.h in Headers */,
+				B6826AA31B9859AB008C432B /* FMRichTextViewToolbar.h in Headers */,
+				B6826AA41B9859AB008C432B /* FMRichTextViewToolbarButton.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		B6AD96031B96F37C00D544A2 /* FMRichTextView */ = {
+		B6826A5B1B9858F3008C432B /* FMRichTextView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B6AD96271B96F37C00D544A2 /* Build configuration list for PBXNativeTarget "FMRichTextView" */;
+			buildConfigurationList = B6826A6D1B9858F3008C432B /* Build configuration list for PBXNativeTarget "FMRichTextView" */;
 			buildPhases = (
-				B6AD96001B96F37C00D544A2 /* Sources */,
-				B6AD96011B96F37C00D544A2 /* Frameworks */,
-				B6AD96021B96F37C00D544A2 /* Resources */,
+				B6826A581B9858F3008C432B /* Sources */,
+				B6826A591B9858F3008C432B /* Frameworks */,
+				B6826A5A1B9858F3008C432B /* CopyFiles */,
+				B6826AA11B9859A3008C432B /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = FMRichTextView;
-			productName = RichTextEditor;
-			productReference = B6AD96041B96F37C00D544A2 /* FMRichTextView.app */;
-			productType = "com.apple.product-type.application";
+			productName = FMRichTextView;
+			productReference = B6826A5C1B9858F3008C432B /* libFMRichTextView.a */;
+			productType = "com.apple.product-type.library.static";
 		};
-		B6AD961C1B96F37C00D544A2 /* FMRichTextViewTests */ = {
+		B6826A651B9858F3008C432B /* FMRichTextViewTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B6AD962A1B96F37C00D544A2 /* Build configuration list for PBXNativeTarget "FMRichTextViewTests" */;
+			buildConfigurationList = B6826A701B9858F3008C432B /* Build configuration list for PBXNativeTarget "FMRichTextViewTests" */;
 			buildPhases = (
-				B6AD96191B96F37C00D544A2 /* Sources */,
-				B6AD961A1B96F37C00D544A2 /* Frameworks */,
-				B6AD961B1B96F37C00D544A2 /* Resources */,
+				B6826A621B9858F3008C432B /* Sources */,
+				B6826A631B9858F3008C432B /* Frameworks */,
+				B6826A641B9858F3008C432B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B6AD961F1B96F37C00D544A2 /* PBXTargetDependency */,
+				B6826A691B9858F3008C432B /* PBXTargetDependency */,
 			);
 			name = FMRichTextViewTests;
-			productName = RichTextEditorTests;
-			productReference = B6AD961D1B96F37C00D544A2 /* FMRichTextViewTests.xctest */;
+			productName = FMRichTextViewTests;
+			productReference = B6826A661B9858F3008C432B /* FMRichTextViewTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B6826A761B98592B008C432B /* FMRichTextViewDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B6826A971B98592B008C432B /* Build configuration list for PBXNativeTarget "FMRichTextViewDemo" */;
+			buildPhases = (
+				B6826A731B98592B008C432B /* Sources */,
+				B6826A741B98592B008C432B /* Frameworks */,
+				B6826A751B98592B008C432B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B6826AA71B9859D2008C432B /* PBXTargetDependency */,
+			);
+			name = FMRichTextViewDemo;
+			productName = FMRichTextViewDemo;
+			productReference = B6826A771B98592B008C432B /* FMRichTextViewDemo.app */;
+			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
@@ -206,12 +257,14 @@
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "Future Mind sp. z o. o.";
 				TargetAttributes = {
-					B6AD96031B96F37C00D544A2 = {
+					B6826A5B1B9858F3008C432B = {
 						CreatedOnToolsVersion = 6.4;
 					};
-					B6AD961C1B96F37C00D544A2 = {
+					B6826A651B9858F3008C432B = {
 						CreatedOnToolsVersion = 6.4;
-						TestTargetID = B6AD96031B96F37C00D544A2;
+					};
+					B6826A761B98592B008C432B = {
+						CreatedOnToolsVersion = 6.4;
 					};
 				};
 			};
@@ -228,87 +281,172 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B6AD96031B96F37C00D544A2 /* FMRichTextView */,
-				B6AD961C1B96F37C00D544A2 /* FMRichTextViewTests */,
+				B6826A5B1B9858F3008C432B /* FMRichTextView */,
+				B6826A651B9858F3008C432B /* FMRichTextViewTests */,
+				B6826A761B98592B008C432B /* FMRichTextViewDemo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		B6AD96021B96F37C00D544A2 /* Resources */ = {
+		B6826A641B9858F3008C432B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B617391C1B97486700525798 /* Info.plist in Resources */,
-				B61739241B97487200525798 /* LaunchScreen.xib in Resources */,
-				B617391B1B97486700525798 /* Images.xcassets in Resources */,
-				B617392B1B9748A300525798 /* Info.plist in Resources */,
-				B61739251B97487200525798 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B6AD961B1B96F37C00D544A2 /* Resources */ = {
+		B6826A751B98592B008C432B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6826A851B98592B008C432B /* Main.storyboard in Resources */,
+				B6826A8A1B98592B008C432B /* LaunchScreen.xib in Resources */,
+				B6826A871B98592B008C432B /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		B6AD96001B96F37C00D544A2 /* Sources */ = {
+		B6826A581B9858F3008C432B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B617391F1B97486700525798 /* ViewController.m in Sources */,
-				B617391D1B97486700525798 /* main.m in Sources */,
-				B617391A1B97486700525798 /* FMRichTextViewToolbarButton.m in Sources */,
-				B61739191B97486700525798 /* FMRichTextViewToolbar.m in Sources */,
-				B61739181B97486700525798 /* FMRichTextView.m in Sources */,
-				B61739151B97486700525798 /* AppDelegate.m in Sources */,
-				B617391E1B97486700525798 /* UIFont+FMRichTextView.m in Sources */,
+				B6826A9F1B9859A0008C432B /* FMRichTextViewToolbarButton.m in Sources */,
+				B6826A9D1B98599C008C432B /* FMRichTextView.m in Sources */,
+				B6826A9E1B98599C008C432B /* FMRichTextViewToolbar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B6AD96191B96F37C00D544A2 /* Sources */ = {
+		B6826A621B9858F3008C432B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6826A2B1B9749B4008C432B /* RichTextEditorTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B6826A731B98592B008C432B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B6826A821B98592B008C432B /* ViewController.m in Sources */,
+				B6826A7F1B98592B008C432B /* AppDelegate.m in Sources */,
+				B6826A7C1B98592B008C432B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B6AD961F1B96F37C00D544A2 /* PBXTargetDependency */ = {
+		B6826A691B9858F3008C432B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B6AD96031B96F37C00D544A2 /* FMRichTextView */;
-			targetProxy = B6AD961E1B96F37C00D544A2 /* PBXContainerItemProxy */;
+			target = B6826A5B1B9858F3008C432B /* FMRichTextView */;
+			targetProxy = B6826A681B9858F3008C432B /* PBXContainerItemProxy */;
+		};
+		B6826AA71B9859D2008C432B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B6826A5B1B9858F3008C432B /* FMRichTextView */;
+			targetProxy = B6826AA61B9859D2008C432B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B61739201B97487200525798 /* LaunchScreen.xib */ = {
+		B6826A831B98592B008C432B /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B61739211B97487200525798 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-		B61739221B97487200525798 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B61739231B97487200525798 /* Base */,
+				B6826A841B98592B008C432B /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B6826A881B98592B008C432B /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B6826A891B98592B008C432B /* Base */,
+			);
+			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B6826A6E1B9858F3008C432B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		B6826A6F1B9858F3008C432B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		B6826A711B9858F3008C432B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = FMRichTextViewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B6826A721B9858F3008C432B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = FMRichTextViewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		B6826A981B98592B008C432B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = FMRichTextViewDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B6826A991B98592B008C432B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = FMRichTextViewDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		B6AD96251B96F37C00D544A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -349,6 +487,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = iphoneos;
 			};
@@ -387,84 +526,45 @@
 				INFOPLIST_FILE = "${TARGET_NAME}/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		B6AD96281B96F37C00D544A2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-			};
-			name = Debug;
-		};
-		B6AD96291B96F37C00D544A2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-			};
-			name = Release;
-		};
-		B6AD962B1B96F37C00D544A2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FMRichTextView.app/FMRichTextView";
-			};
-			name = Debug;
-		};
-		B6AD962C1B96F37C00D544A2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FMRichTextView.app/FMRichTextView";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B6826A6D1B9858F3008C432B /* Build configuration list for PBXNativeTarget "FMRichTextView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B6826A6E1B9858F3008C432B /* Debug */,
+				B6826A6F1B9858F3008C432B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B6826A701B9858F3008C432B /* Build configuration list for PBXNativeTarget "FMRichTextViewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B6826A711B9858F3008C432B /* Debug */,
+				B6826A721B9858F3008C432B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B6826A971B98592B008C432B /* Build configuration list for PBXNativeTarget "FMRichTextViewDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B6826A981B98592B008C432B /* Debug */,
+				B6826A991B98592B008C432B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		B6AD95FF1B96F37C00D544A2 /* Build configuration list for PBXProject "FMRichTextView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B6AD96251B96F37C00D544A2 /* Debug */,
 				B6AD96261B96F37C00D544A2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B6AD96271B96F37C00D544A2 /* Build configuration list for PBXNativeTarget "FMRichTextView" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B6AD96281B96F37C00D544A2 /* Debug */,
-				B6AD96291B96F37C00D544A2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B6AD962A1B96F37C00D544A2 /* Build configuration list for PBXNativeTarget "FMRichTextViewTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B6AD962B1B96F37C00D544A2 /* Debug */,
-				B6AD962C1B96F37C00D544A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
