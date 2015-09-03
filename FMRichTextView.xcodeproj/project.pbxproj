@@ -21,6 +21,10 @@
 		B6826AA31B9859AB008C432B /* FMRichTextViewToolbar.h in Headers */ = {isa = PBXBuildFile; fileRef = B617390A1B97486700525798 /* FMRichTextViewToolbar.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B6826AA41B9859AB008C432B /* FMRichTextViewToolbarButton.h in Headers */ = {isa = PBXBuildFile; fileRef = B617390C1B97486700525798 /* FMRichTextViewToolbarButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B6826AA81B9859D5008C432B /* libFMRichTextView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B6826A5C1B9858F3008C432B /* libFMRichTextView.a */; };
+		B6826AAB1B9891E1008C432B /* FMRichTextView+HTMLString.h in Headers */ = {isa = PBXBuildFile; fileRef = B6826AA91B9891E1008C432B /* FMRichTextView+HTMLString.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B6826AAC1B9891E1008C432B /* FMRichTextView+HTMLString.m in Sources */ = {isa = PBXBuildFile; fileRef = B6826AAA1B9891E1008C432B /* FMRichTextView+HTMLString.m */; };
+		B6826AAE1B9891FD008C432B /* FMRichTextViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B61739281B97489B00525798 /* FMRichTextViewTests.m */; };
+		B6826AB11B9896DA008C432B /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6826AB01B9896DA008C432B /* WebViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,13 +70,17 @@
 		B6826A771B98592B008C432B /* FMRichTextViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FMRichTextViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6826A7A1B98592B008C432B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6826A7B1B98592B008C432B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		B6826A7D1B98592B008C432B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		B6826A7E1B98592B008C432B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B6826A801B98592B008C432B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		B6826A811B98592B008C432B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		B6826A7D1B98592B008C432B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = FMRichTextViewDemo/AppDelegate.h; sourceTree = SOURCE_ROOT; };
+		B6826A7E1B98592B008C432B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = FMRichTextViewDemo/AppDelegate.m; sourceTree = SOURCE_ROOT; };
+		B6826A801B98592B008C432B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = FMRichTextViewDemo/ViewController.h; sourceTree = SOURCE_ROOT; };
+		B6826A811B98592B008C432B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = FMRichTextViewDemo/ViewController.m; sourceTree = SOURCE_ROOT; };
 		B6826A841B98592B008C432B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B6826A861B98592B008C432B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B6826A861B98592B008C432B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = FMRichTextViewDemo/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		B6826A891B98592B008C432B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		B6826AA91B9891E1008C432B /* FMRichTextView+HTMLString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "FMRichTextView+HTMLString.h"; path = "FMRichTextView/FMRichTextView+HTMLString.h"; sourceTree = SOURCE_ROOT; };
+		B6826AAA1B9891E1008C432B /* FMRichTextView+HTMLString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "FMRichTextView+HTMLString.m"; path = "FMRichTextView/FMRichTextView+HTMLString.m"; sourceTree = SOURCE_ROOT; };
+		B6826AAF1B9896DA008C432B /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		B6826AB01B9896DA008C432B /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +117,8 @@
 				B6826A7E1B98592B008C432B /* AppDelegate.m */,
 				B6826A801B98592B008C432B /* ViewController.h */,
 				B6826A811B98592B008C432B /* ViewController.m */,
+				B6826AAF1B9896DA008C432B /* WebViewController.h */,
+				B6826AB01B9896DA008C432B /* WebViewController.m */,
 				B6826A831B98592B008C432B /* Main.storyboard */,
 				B6826A861B98592B008C432B /* Images.xcassets */,
 				B6826A881B98592B008C432B /* LaunchScreen.xib */,
@@ -155,6 +165,8 @@
 				B617390B1B97486700525798 /* FMRichTextViewToolbar.m */,
 				B617390C1B97486700525798 /* FMRichTextViewToolbarButton.h */,
 				B617390D1B97486700525798 /* FMRichTextViewToolbarButton.m */,
+				B6826AA91B9891E1008C432B /* FMRichTextView+HTMLString.h */,
+				B6826AAA1B9891E1008C432B /* FMRichTextView+HTMLString.m */,
 			);
 			name = FMRichTextView;
 			path = RichTextEditor;
@@ -187,6 +199,7 @@
 			files = (
 				B6826AA21B9859AB008C432B /* FMRichTextView.h in Headers */,
 				B6826AA31B9859AB008C432B /* FMRichTextViewToolbar.h in Headers */,
+				B6826AAB1B9891E1008C432B /* FMRichTextView+HTMLString.h in Headers */,
 				B6826AA41B9859AB008C432B /* FMRichTextViewToolbarButton.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -315,6 +328,7 @@
 			files = (
 				B6826A9F1B9859A0008C432B /* FMRichTextViewToolbarButton.m in Sources */,
 				B6826A9D1B98599C008C432B /* FMRichTextView.m in Sources */,
+				B6826AAC1B9891E1008C432B /* FMRichTextView+HTMLString.m in Sources */,
 				B6826A9E1B98599C008C432B /* FMRichTextViewToolbar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -323,6 +337,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6826AAE1B9891FD008C432B /* FMRichTextViewTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +348,7 @@
 				B6826A821B98592B008C432B /* ViewController.m in Sources */,
 				B6826A7F1B98592B008C432B /* AppDelegate.m in Sources */,
 				B6826A7C1B98592B008C432B /* main.m in Sources */,
+				B6826AB11B9896DA008C432B /* WebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,7 +374,8 @@
 				B6826A841B98592B008C432B /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
+			path = FMRichTextViewDemo;
+			sourceTree = SOURCE_ROOT;
 		};
 		B6826A881B98592B008C432B /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
@@ -366,7 +383,8 @@
 				B6826A891B98592B008C432B /* Base */,
 			);
 			name = LaunchScreen.xib;
-			sourceTree = "<group>";
+			path = FMRichTextViewDemo;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXVariantGroup section */
 

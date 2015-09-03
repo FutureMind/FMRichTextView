@@ -7,11 +7,24 @@
 //
 
 #import "ViewController.h"
-#import "FMRichTextView.h"
+#import "FMRichTextView+HTMLString.h"
+#import "WebViewController.h"
 
-@interface ViewController ()
-@property (nonatomic, strong) FMRichTextView *textView;
+@interface ViewController () <UITextViewDelegate>
+@property (nonatomic, strong) IBOutlet FMRichTextView *textView;
 @end
 
 @implementation ViewController
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+	[self performSegueWithIdentifier:@"webView" sender:nil];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+	WebViewController *webViewController = segue.destinationViewController;
+	webViewController.HTMLString = self.textView.HTMLString;
+}
+
 @end

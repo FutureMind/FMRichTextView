@@ -9,7 +9,7 @@
 #import "FMRichTextView.h"
 #import "FMRichTextViewToolbar.h"
 #import "FMRichTextViewToolbarButton.h"
-//#import "UIFont+FMRichTextView.h"
+#import "FMRichTextView+HTMLString.h"
 
 @interface FMRichTextView ()
 @property (nonatomic, strong) FMRichTextViewToolbar *accessoryToolbar;
@@ -31,10 +31,10 @@
 		FMRichTextViewToolbarButton *boldButton = [FMRichTextViewToolbarButton buttonWithFontDescriptorTrait:UIFontDescriptorTraitBold];
 		[boldButton setTitle:@"B" forState:UIControlStateNormal];
 		
-		FMRichTextViewToolbarButton italicButton = [FMRichTextViewToolbarButton buttonWithFontDescriptorTrait:UIFontDescriptorTraitItalic];
+		FMRichTextViewToolbarButton *italicButton = [FMRichTextViewToolbarButton buttonWithFontDescriptorTrait:UIFontDescriptorTraitItalic];
 		[italicButton setTitle:@"I" forState:UIControlStateNormal];
 		
-		FMRichTextViewToolbarButton underlineButton = [FMRichTextViewToolbarButton buttonWithAttributeName:NSUnderlineStyleAttributeName normalValue:@0 selectedValue:@1];
+		FMRichTextViewToolbarButton *underlineButton = [FMRichTextViewToolbarButton buttonWithAttributeName:NSUnderlineStyleAttributeName normalValue:@0 selectedValue:@1];
 		[underlineButton setTitle:@"U" forState:UIControlStateNormal];
 		
 		for (FMRichTextViewToolbarButton *button in @[boldButton, italicButton, underlineButton])
