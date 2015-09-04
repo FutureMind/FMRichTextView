@@ -182,7 +182,7 @@
 	{
 		traits |= (button.isSelected ? button.fontDescriptorTrait : 0);
 	}
-	mutableTypingAttributes[NSFontAttributeName] = [UIFont fontWithDescriptor:[self.font.fontDescriptor fontDescriptorWithSymbolicTraits:traits] size:0.0f];
+	mutableTypingAttributes[NSFontAttributeName] = [UIFont fontWithDescriptor:[self.font.fontDescriptor fontDescriptorWithSymbolicTraits:traits] size:0.0f] ?: self.font;
 
 	// enumerate attribute buttons
 	NSArray *buttonsWithAttributeName = self.accessoryToolbar.buttonsWithAttributeName;
@@ -236,8 +236,8 @@
 					traits ^= button.fontDescriptorTrait;
 				}
 				
-				UIFont *newFont = [UIFont fontWithDescriptor:[font.fontDescriptor fontDescriptorWithSymbolicTraits:traits] size:0.0f];
-				[attributedString addAttribute:NSFontAttributeName value:newFont range:range];
+				UIFont *newFont = [UIFont fontWithDescriptor:[self.font.fontDescriptor fontDescriptorWithSymbolicTraits:traits] size:0.0f];
+				[attributedString addAttribute:NSFontAttributeName value:newFont ?: self.font range:range];
 			}];
 			
 		}

@@ -101,7 +101,7 @@
 {
 	NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
 	attributes[NSForegroundColorAttributeName] = [self titleColorForState:state];
-	attributes[NSFontAttributeName] = [UIFont fontWithDescriptor:[self.titleLabel.font.fontDescriptor fontDescriptorWithSymbolicTraits:self.fontDescriptorTrait] size:0.0];
+	attributes[NSFontAttributeName] = [UIFont fontWithDescriptor:[self.titleLabel.font.fontDescriptor fontDescriptorWithSymbolicTraits:self.fontDescriptorTrait] size:0.0] ?: self.titleLabel.font;
 	if (self.attributeName)
 	{
 		attributes[self.attributeName] = self.selectedValue;
