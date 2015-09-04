@@ -19,47 +19,76 @@
 
 - (void)updateTextStyleInSelectedRange;
 - (void)updateTypingAttributes;
+- (void)setup;
 @end
 
 @implementation FMRichTextView
+
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
 	self = [super initWithCoder:aDecoder];
 	if (self)
 	{
-		FMRichTextViewToolbarButton *boldButton = [FMRichTextViewToolbarButton buttonWithFontDescriptorTrait:UIFontDescriptorTraitBold];
-		[boldButton setTitle:@"B" forState:UIControlStateNormal];
-		
-		FMRichTextViewToolbarButton *italicButton = [FMRichTextViewToolbarButton buttonWithFontDescriptorTrait:UIFontDescriptorTraitItalic];
-		[italicButton setTitle:@"I" forState:UIControlStateNormal];
-		
-		FMRichTextViewToolbarButton *underlineButton = [FMRichTextViewToolbarButton buttonWithAttributeName:NSUnderlineStyleAttributeName normalValue:@0 selectedValue:@1];
-		[underlineButton setTitle:@"U" forState:UIControlStateNormal];
-		
-		for (FMRichTextViewToolbarButton *button in @[boldButton, italicButton, underlineButton])
-		{
-			button.frame = CGRectMake(0.0f, 0.0f, 32.0f, 32.0f);
-			[button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-			[button setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
-			[button addTarget:self action:@selector(accessoryButtonTouchedUp:) forControlEvents:UIControlEventTouchUpInside];
-		}
-		
-		_accessoryToolbar = [FMRichTextViewToolbar new];
-		_accessoryToolbar.frame = CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.frame), 44.0f);
-		_accessoryToolbar.items = @[[[UIBarButtonItem alloc] initWithCustomView:boldButton],
-									[[UIBarButtonItem alloc] initWithCustomView:italicButton],
-									[[UIBarButtonItem alloc] initWithCustomView:underlineButton],
-									[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
-									[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonTouchedUp:)]
-									];
-		
-		self.font = [UIFont systemFontOfSize:16.0f];
-		self.inputAccessoryView = _accessoryToolbar;
-
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textViewTextDidChangeNotification:) name:UITextViewTextDidChangeNotification object:self];
+		[self setup];
 	}
 	return self;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+	self = [super initWithFrame:frame];
+	if (self)
+	{
+		[self setup];
+	}
+	return self;
+}
+
+- (instancetype)init
+{
+	self = [super init];
+	if (self)
+	{
+		[self setup];
+	}
+	return self;
+}
+
+- (void)setup
+{
+	FMRichTextViewToolbarButton *boldButton = [FMRichTextViewToolbarButton buttonWithFontDescriptorTrait:UIFontDescriptorTraitBold];
+	[boldButton setTitle:@"B" forState:UIControlStateNormal];
+	
+	FMRichTextViewToolbarButton *italicButton = [FMRichTextViewToolbarButton buttonWithFontDescriptorTrait:UIFontDescriptorTraitItalic];
+	[italicButton setTitle:@"I" forState:UIControlStateNormal];
+	
+	FMRichTextViewToolbarButton *underlineButton = [FMRichTextViewToolbarButton buttonWithAttributeName:NSUnderlineStyleAttributeName normalValue:@0 selectedValue:@1];
+	[underlineButton setTitle:@"U" forState:UIControlStateNormal];
+	
+	for (FMRichTextViewToolbarButton *button in @[boldButton, italicButton, underlineButton])
+	{
+		button.frame = CGRectMake(0.0f, 0.0f, 32.0f, 32.0f);
+		[button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+		[button setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+		[button addTarget:self action:@selector(accessoryButtonTouchedUp:) forControlEvents:UIControlEventTouchUpInside];
+	}
+	
+	_accessoryToolbar = [FMRichTextViewToolbar new];
+	_accessoryToolbar.frame = CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.frame), 44.0f);
+	_accessoryToolbar.items = @[[[UIBarButtonItem alloc] initWithCustomView:boldButton],
+								[[UIBarButtonItem alloc] initWithCustomView:italicButton],
+								[[UIBarButtonItem alloc] initWithCustomView:underlineButton],
+								[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+								[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonTouchedUp:)]
+								];
+	
+	self.dataDetectorTypes = UIDataDetectorTypeNone;
+	self.editable = YES;
+	self.font = [UIFont systemFontOfSize:16.0f];
+	self.inputAccessoryView = _accessoryToolbar;
+	
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textViewTextDidChangeNotification:) name:UITextViewTextDidChangeNotification object:self];
 }
 
 - (void)dealloc
@@ -141,7 +170,7 @@
 			[characterStyles addObject:attrs];
 		}];
 	}
-	else if (self.attributedText.length > 0)
+	else if (self.selectedRange.location > 0 && (self.selectedRange.location - 1) < self.attributedText.length)
 	{
 		// get text style of the previous character
 		NSDictionary *attrs = [self.attributedText attributesAtIndex:self.selectedRange.location - 1 effectiveRange:nil];
