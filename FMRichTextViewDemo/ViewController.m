@@ -16,6 +16,23 @@
 
 @implementation ViewController
 
+- (void)viewDidLoad
+{
+	[super viewDidLoad];
+	
+//	self.textView.HTMLString = @"<p>abc <b>def&#160;<em>xyz<u>&#160;ijk</u></em></b></p>";
+	self.textView.HTMLString = @"<p>\
+	raz \
+	<b>dwa </b>\
+	</p>\
+	<p>\
+	<em>trzy cztery</em>\
+	</p>\
+	<p>\
+	<u><em>piec</em></u>\
+	</p>";
+}
+
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
 	[self performSegueWithIdentifier:@"webView" sender:nil];

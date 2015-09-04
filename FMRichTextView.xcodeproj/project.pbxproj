@@ -25,6 +25,8 @@
 		B6826AAC1B9891E1008C432B /* FMRichTextView+HTMLString.m in Sources */ = {isa = PBXBuildFile; fileRef = B6826AAA1B9891E1008C432B /* FMRichTextView+HTMLString.m */; };
 		B6826AAE1B9891FD008C432B /* FMRichTextViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B61739281B97489B00525798 /* FMRichTextViewTests.m */; };
 		B6826AB11B9896DA008C432B /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6826AB01B9896DA008C432B /* WebViewController.m */; };
+		B6E99AB61B9966C8000BFF12 /* FMHTMLParser.h in Headers */ = {isa = PBXBuildFile; fileRef = B6E99AB41B9966C8000BFF12 /* FMHTMLParser.h */; };
+		B6E99AB71B9966C8000BFF12 /* FMHTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E99AB51B9966C8000BFF12 /* FMHTMLParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,8 @@
 		B6826AAA1B9891E1008C432B /* FMRichTextView+HTMLString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "FMRichTextView+HTMLString.m"; path = "FMRichTextView/FMRichTextView+HTMLString.m"; sourceTree = SOURCE_ROOT; };
 		B6826AAF1B9896DA008C432B /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		B6826AB01B9896DA008C432B /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		B6E99AB41B9966C8000BFF12 /* FMHTMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMHTMLParser.h; path = FMRichTextView/FMHTMLParser.h; sourceTree = SOURCE_ROOT; };
+		B6E99AB51B9966C8000BFF12 /* FMHTMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMHTMLParser.m; path = FMRichTextView/FMHTMLParser.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +171,8 @@
 				B617390D1B97486700525798 /* FMRichTextViewToolbarButton.m */,
 				B6826AA91B9891E1008C432B /* FMRichTextView+HTMLString.h */,
 				B6826AAA1B9891E1008C432B /* FMRichTextView+HTMLString.m */,
+				B6E99AB41B9966C8000BFF12 /* FMHTMLParser.h */,
+				B6E99AB51B9966C8000BFF12 /* FMHTMLParser.m */,
 			);
 			name = FMRichTextView;
 			path = RichTextEditor;
@@ -201,6 +207,7 @@
 				B6826AA31B9859AB008C432B /* FMRichTextViewToolbar.h in Headers */,
 				B6826AAB1B9891E1008C432B /* FMRichTextView+HTMLString.h in Headers */,
 				B6826AA41B9859AB008C432B /* FMRichTextViewToolbarButton.h in Headers */,
+				B6E99AB61B9966C8000BFF12 /* FMHTMLParser.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +337,7 @@
 				B6826A9D1B98599C008C432B /* FMRichTextView.m in Sources */,
 				B6826AAC1B9891E1008C432B /* FMRichTextView+HTMLString.m in Sources */,
 				B6826A9E1B98599C008C432B /* FMRichTextViewToolbar.m in Sources */,
+				B6E99AB71B9966C8000BFF12 /* FMHTMLParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -561,6 +569,7 @@
 				B6826A6F1B9858F3008C432B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B6826A701B9858F3008C432B /* Build configuration list for PBXNativeTarget "FMRichTextViewTests" */ = {
 			isa = XCConfigurationList;
@@ -569,6 +578,7 @@
 				B6826A721B9858F3008C432B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B6826A971B98592B008C432B /* Build configuration list for PBXNativeTarget "FMRichTextViewDemo" */ = {
 			isa = XCConfigurationList;
@@ -577,6 +587,7 @@
 				B6826A991B98592B008C432B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B6AD95FF1B96F37C00D544A2 /* Build configuration list for PBXProject "FMRichTextView" */ = {
 			isa = XCConfigurationList;

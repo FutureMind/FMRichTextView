@@ -9,6 +9,5 @@
 #import <FMRichTextView/FMRichTextView.h>
 
 @interface FMRichTextView (HTMLString)
-@property (nonatomic, readonly) NSString *HTMLString;
-- (void)setHTMLString:(NSString *)HTMLString completionBlock:(void (^)(void))block;
+@property (nonatomic, readwrite) NSString *HTMLString;
 @end

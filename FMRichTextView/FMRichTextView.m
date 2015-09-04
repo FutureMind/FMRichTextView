@@ -112,7 +112,8 @@
 		}
 	}
 
-	[self updateTextStyleInSelectedRange];
+	[self updateTypingAttributes];
+//	[self updateTextStyleInSelectedRange];
 }
 
 #pragma mark - Notification
@@ -162,7 +163,7 @@
 	{
 		// select if in the selection there is only one style and its value matches button's selected attribute value
 		NSArray *differentAttributes = [characterStyles valueForKeyPath:[NSString stringWithFormat:@"@distinctUnionOfObjects.%@", button.attributeName]];
-		button.selected = ([differentFonts count] == 1) && [characterStyles.firstObject[button.attributeName] isEqual:button.selectedValue];
+		button.selected = ([differentAttributes count] == 1) && [characterStyles.firstObject[button.attributeName] isEqual:button.selectedValue];
 	}
 	
 	// update typing attributes

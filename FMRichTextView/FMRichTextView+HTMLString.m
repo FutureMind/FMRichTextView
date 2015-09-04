@@ -7,57 +7,62 @@
 //
 
 #import "FMRichTextView+HTMLString.h"
+#import "FMHTMLParser.h"
 
-static NSString * const BoldTag = @"b";
-static NSString * const ItalicTag = @"i";
-static NSString * const UnderlineTag = @"u";
+#define OPEN_TAG(flag, tag) if(flag){ [output appendFormat:@"<%@>", tag]; }
+#define CLOSE_TAG(flag, tag) if(flag){ [output appendFormat:@"</%@>", tag]; }
+#define NEW_LINE [output appendString:@"\n"]
 
 @implementation FMRichTextView (HTMLString)
 
 - (NSString *)HTMLString
 {
-	NSMutableString *output = [NSMutableString stringWithString:@"<html><body>\n"];
+	NSMutableString *output = [NSMutableString stringWithString:@""];
+//	OPEN_TAG(YES, @"html");
+//	OPEN_TAG(YES, @"body");
+//	NEW_LINE;
 	
-	BOOL (^openCloseTag)(NSString *, BOOL, BOOL) = ^(NSString *tag, BOOL shouldOpen, BOOL isOpened) {
-		if (shouldOpen && !isOpened)
-		{
-			[output appendFormat:@"<%@>", tag];
-		}
-		else if (!shouldOpen && isOpened)
-		{
-			[output appendFormat:@"</%@>", tag];
-		}
+	[self.attributedText.string enumerateSubstringsInRange:NSMakeRange(0, self.attributedText.string.length) options:NSStringEnumerationByParagraphs usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
+
+		OPEN_TAG(YES, HTMLParagraphTag);
+		NEW_LINE;
 		
-		return shouldOpen;
-	};
-	
-	__block BOOL underlineTagOpen = NO;
-	__block BOOL boldTagOpen = NO;
-	__block BOOL italicTagOpen = NO;
-	
-	[self.attributedText enumerateAttributesInRange:NSMakeRange(0, self.attributedText.length) options:0 usingBlock:^(NSDictionary *attrs, NSRange range, BOOL *stop) {
-		UIFont *font = attrs[NSFontAttributeName];
-		BOOL bold = (font.fontDescriptor.symbolicTraits & UIFontDescriptorTraitBold) > 0;
-		BOOL italic = (font.fontDescriptor.symbolicTraits & UIFontDescriptorTraitItalic) > 0;
-		BOOL underline = [attrs[NSUnderlineStyleAttributeName] boolValue];
+		// enumerate substrings in paragraph
+		NSAttributedString *paragraphAttributedString = [self.attributedText attributedSubstringFromRange:substringRange];
+		[paragraphAttributedString enumerateAttributesInRange:NSMakeRange(0, paragraphAttributedString.length) options:0 usingBlock:^(NSDictionary *attrs, NSRange range, BOOL *stop) {
+			
+			UIFont *font = attrs[NSFontAttributeName];
+			BOOL bold = (font.fontDescriptor.symbolicTraits & UIFontDescriptorTraitBold) > 0;
+			BOOL italic = (font.fontDescriptor.symbolicTraits & UIFontDescriptorTraitItalic) > 0;
+			BOOL underline = [attrs[NSUnderlineStyleAttributeName] boolValue];
+			
+			OPEN_TAG(underline, HTMLUnderlineTag);
+			OPEN_TAG(bold, HTMLBoldTag);
+			OPEN_TAG(italic, HTMLItalicTag);
+			
+			[output appendString:[paragraphAttributedString.string substringWithRange:range]];
+			
+			CLOSE_TAG(italic, HTMLItalicTag);
+			CLOSE_TAG(bold, HTMLBoldTag);
+			CLOSE_TAG(underline, HTMLUnderlineTag);
+			
+			NEW_LINE;
+		}];
 		
-		underlineTagOpen = openCloseTag(UnderlineTag, underline, underlineTagOpen);
-		boldTagOpen = openCloseTag(BoldTag, bold, boldTagOpen);
-		italicTagOpen = openCloseTag(ItalicTag, italic, italicTagOpen);
-		
-		[output appendString:[self.attributedText.string substringWithRange:range]];
-		
-		underlineTagOpen = openCloseTag(UnderlineTag, NO, underlineTagOpen);
-		boldTagOpen = openCloseTag(BoldTag, NO, boldTagOpen);
-		italicTagOpen = openCloseTag(ItalicTag, NO, italicTagOpen);
-		
-		[output appendString:@"\n"];
-		
-		#warning HANDLE NEW LINES AND PARAGRAPHS!!!
+		CLOSE_TAG(YES, HTMLParagraphTag);
+		NEW_LINE;
 	}];
-	
-	[output appendString:@"</body></html>"];
+
+//	CLOSE_TAG(YES, @"body");
+//	CLOSE_TAG(YES, @"html");
+
 	return output;
+}
+
+- (void)setHTMLString:(NSString *)HTMLString
+{
+	FMHTMLParser *parse = [[FMHTMLParser alloc] initWithHTML:HTMLString baseFont:self.font];
+	self.attributedText = parse.attributedString;
 }
 
 @end
