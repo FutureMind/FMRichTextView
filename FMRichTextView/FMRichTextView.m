@@ -274,6 +274,11 @@
 		self.attributedText = attributedString;
 		self.selectedRange = selectedRange;
 	}
+	
+	if ([self.delegate respondsToSelector:@selector(textViewDidChange:)])
+	{
+		[self.delegate performSelector:@selector(textViewDidChange:) withObject:self];
+	}
 }
 
 @end
